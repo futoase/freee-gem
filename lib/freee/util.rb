@@ -16,7 +16,7 @@ module Freee
       params = {
         grant_type: 'authorization_code',
         code: kwarg[:authorization_code],
-        redirect_uri: kwarg[:redirect_url],
+        redirect_uri: kwarg[:redirect_uri],
         headers: {
           'Content-Type' => 'application/json',
           'Authorization' => HTTPAuth::Basic.pack_authorization(

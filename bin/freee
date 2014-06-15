@@ -17,7 +17,7 @@ module Freee
       puts 'Token: ' + Freee::Util.create_token(
         client_id: client_id,
         secret_key: secret_key,
-        redirect_url: redirect_uri,
+        redirect_uri: redirect_uri,
         authorization_code: authorization_code
       )
     end

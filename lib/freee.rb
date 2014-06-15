@@ -1,4 +1,5 @@
 require 'freee/version'
+require 'freee/util'
 require 'oauth2'
 require 'faraday'
 require 'faraday_middleware'

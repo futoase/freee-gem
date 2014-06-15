@@ -14,33 +14,12 @@ module Freee
       redirect_uri = ask("Redirect URI\n")
       authorization_code = ask("Authorization code\n")
 
-      options = {
-        site: 'https://api.freee.co.jp',
-        authorize_url: '/oauth/authorize',
-        token_url: '/oauth/token'
-      }
-
-      params = {
-        grant_type: 'authorization_code',
-        code: authorization_code.to_s,
-        redirect_uri: redirect_uri.to_s,
-        headers: {
-          'Content-Type' => 'application/json',
-          'Authorization' => HTTPAuth::Basic.pack_authorization(
-            client_id.to_s,
-            secret_key.to_s
-          )
-        }
-      }
-
-      client = OAuth2::Client.new(client_id, secret_key, options) do |con|
-        con.request :url_encoded
-        con.request :json
-        con.response :json, content_type: /\bjson$/
-        con.adapter Faraday.default_adapter
-      end
-
-      say("Token: #{client.get_token(params).token}")
+      puts 'Token: ' + Freee::Util.create_token(
+        client_id: client_id,
+        secret_key: secret_key,
+        redirect_url: redirect_uri,
+        authorization_code: authorization_code
+      )
     end
   end
 end

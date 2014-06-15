@@ -1,12 +1,16 @@
-require 'freee/version'
-require 'freee/util'
 require 'oauth2'
 require 'faraday'
 require 'faraday_middleware'
 require 'httpauth'
 require 'thor'
 
-$:.unshift(File.dirname(__FILE__))
+require 'freee/version'
+require 'freee/base'
+
+path = File.dirname(File.absolute_path(__FILE__))
+Dir.glob(path + '/freee/*').each do |d|
+  require d if FileTest.file?(d)
+end
 
 module Freee
   OPTIONS = {

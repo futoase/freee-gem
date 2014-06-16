@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Freee::VERSION
   spec.authors       = ["Keiji Matsuzaki"]
   spec.email         = ["futoase@gmail.com"]
-  spec.summary       = %q{Ruby implementation of the freee API.}
+  spec.summary       = %q{freee API.}
   spec.description   = %q{Ruby implementation of the freee API.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/futoase/freee-gem"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -18,13 +18,14 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "oauth2"
-  spec.add_dependency "faraday"
-  spec.add_dependency "faraday_middleware"
-  spec.add_dependency "httpauth"
-  spec.add_dependency "thor"
+  spec.add_runtime_dependency 'oauth2', '~> 0'
+  spec.add_runtime_dependency 'faraday', '~> 0'
+  spec.add_runtime_dependency 'faraday_middleware', '~> 0'
+  spec.add_runtime_dependency 'httpauth', '~> 0'
+  spec.add_runtime_dependency 'thor', '~> 0'
 
-  spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec"
+
+  spec.add_development_dependency 'bundler', '~> 1.6'
+  spec.add_development_dependency 'rake', '~> 0'
+  spec.add_development_dependency 'rspec', '~> 0'
 end

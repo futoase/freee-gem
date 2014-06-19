@@ -30,7 +30,6 @@ module Freee
       @@token = token
     end
 
-
     def get(path)
       @client.get(path).response.env[:body]
     end

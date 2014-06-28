@@ -12,13 +12,18 @@ describe Freee::User do
 
   it 'should be get information of user' do
     result = user.me
-    expect(result).to include("user")
-    expect(result["user"]).not_to include("companies")
+    expect(result).to include('user')
+    expect(result['user']).not_to include('companies')
   end
 
   it 'should be get information of user at all' do
     result = user.me_all
-    expect(result).to include("user")
-    expect(result["user"]).to include("companies")
+    expect(result).to include('user')
+    expect(result['user']).to include('companies')
+    user_company_info_of_first = result['user']['companies'].first
+
+    expect(user_company_info_of_first).to include('id')
+    expect(user_company_info_of_first).to include('display_name')
+    expect(user_company_info_of_first).to include('role')
   end
 end

@@ -28,6 +28,10 @@ def get_authorization_code
   SAMPLE["get_authorization_code"]
 end
 
+def get_company_id
+  SAMPLE["company_id"]
+end
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true

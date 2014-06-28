@@ -1,5 +1,3 @@
-require 'freee'
-
 module Freee
   module Util
     def self.create_token(**kwarg)

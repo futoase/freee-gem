@@ -4,13 +4,21 @@ require 'faraday_middleware'
 require 'httpauth'
 require 'thor'
 
+$:.unshift(File.dirname(__FILE__))
 require 'freee/version'
 require 'freee/base'
-
-path = File.dirname(File.absolute_path(__FILE__))
-Dir.glob(path + '/freee/*').each do |d|
-  require d if FileTest.file?(d)
-end
+require 'freee/account'
+require 'freee/amount'
+require 'freee/company'
+require 'freee/deal'
+require 'freee/item'
+require 'freee/partner'
+require 'freee/tax'
+require 'freee/transfer'
+require 'freee/user'
+require 'freee/util'
+require 'freee/wallet'
+require 'freee/walletable'
 
 module Freee
   OPTIONS = {

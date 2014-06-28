@@ -1,10 +1,10 @@
 $:.unshift(File.realpath(File.dirname(__FILE__) + '/../lib'))
 
-require 'freee/base'
+require 'freee'
 
-Dir.glob(File.realpath(File.dirname(__FILE__) + '/../lib/freee') + '/**') do |freee|
-  require freee
-end
+#Dir.glob(File.realpath(File.dirname(__FILE__) + '/../lib/freee') + '/**') do |freee|
+#  require freee
+#end
 
 SAMPLE = YAML.load_file(File.expand_path('./sample.yml', __dir__))
 

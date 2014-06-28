@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative 'spec_helper'
 
 describe Freee::Account do
   let(:client_id) { get_token }

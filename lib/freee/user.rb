@@ -1,5 +1,3 @@
-require 'freee'
-
 module Freee
   class User < Freee::Base
     def me

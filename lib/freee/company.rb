@@ -4,12 +4,12 @@ module Freee
       #client.post('/api/p/companies')
     end
 
-    def list
-      client.get('/api/1/companies')
+    def self.list
+      Freee.client.get('/api/1/companies')
     end
 
-    def list_of_details(company_id)
-      client.get("/api/1/companies/#{company_id.to_i}")
+    def self.list_of_details(company_id)
+      Freee.client.get("/api/1/companies/#{company_id.to_i}")
     end
   end
 end

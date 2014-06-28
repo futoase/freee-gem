@@ -4,8 +4,8 @@ module Freee
       #client.post('/api/1/items')
     end
 
-    def list
-      client.get('/api/1/items')
+    def self.list
+      Freee.client.get('/api/1/items')
     end
   end
 end

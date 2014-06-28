@@ -1,4 +1,10 @@
 module Freee
+
+  def client
+    Base.new.client
+  end
+  module_function :client
+
   class Base
 
     @@client_id = nil

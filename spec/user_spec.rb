@@ -4,14 +4,10 @@ describe Freee::User do
   let(:client_id) { get_client_id }
   let(:secret_key) { get_secret_key }
   let(:token) { get_token }
-  let(:user) { Freee::User.new }
+  let(:user) { Freee::User }
 
   before(:each) do
     Freee::Base.config(client_id, secret_key, token)
-  end
-
-  it 'should can be able to create instance' do
-    expect(user.client).not_to be_nil
   end
 
   it 'should be get information of user' do

@@ -1,11 +1,11 @@
 module Freee
   class User < Freee::Base
-    def me
-      client.get('/api/1/users/me')
+    def self.me
+      Freee.client.get('/api/1/users/me')
     end
 
-    def me_all
-      client.get('/api/1/users/me?companies=true')
+    def self.me_all
+      Freee.client.get('/api/1/users/me?companies=true')
     end
   end
 end

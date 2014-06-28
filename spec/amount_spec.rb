@@ -4,7 +4,7 @@ describe Freee::Amount do
   let(:client_id) { get_client_id }
   let(:secret_key) { get_secret_key }
   let(:token) { get_token }
-  let(:amount) { Freee::Amount.new }
+  let(:amount) { Freee::Amount }
 
   before(:each) do
     Freee::Base.config(client_id, secret_key, token)

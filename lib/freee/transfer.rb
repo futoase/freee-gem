@@ -1,11 +1,11 @@
 module Freee
   class Transfer < Freee::Base
-    def create
+    def self.create
       #client.post('/api/1/transfers')
     end
 
-    def list
-      client.get('/api/1/transfers')
+    def self.list
+      Freee.client.get('/api/1/transfers')
     end
   end
 end

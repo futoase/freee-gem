@@ -5,10 +5,10 @@ describe Freee::Company do
   let(:secret_key) { get_secret_key }
   let(:token) { get_token }
   let(:company_id) { '12345' }
-  let(:company) { Freee::Company.new }
+  let(:company) { Freee::Company }
 
   before(:each) do
-    Freee::Base.config(config_id, secret_key)
+    Freee::Base.config(client_id, secret_key, token)
   end
 
   it 'should can be able to create instance' do
@@ -18,10 +18,12 @@ describe Freee::Company do
   it 'should be get list of company' do
     result = company.list
     expect(result).to include("companies")
-    expect(result.first).to include("id")
-    expect(result.first).to include("name")
-    expect(result.first).to include("name_kana")
-    expect(result.first).to include("display_name")
+
+    first_company = result["companies"].first
+    expect(first_company).to include("id")
+    expect(first_company).to include("name")
+    expect(first_company).to include("name_kana")
+    expect(first_company).to include("display_name")
   end
   
   it 'should be get item of the company' do

@@ -5,7 +5,7 @@ describe Freee::Account do
   let(:secret_key) { get_secret_key }
   let(:token) { get_token }
   let(:company_id) { '12345' }
-  let(:account) { Freee::Account.new }
+  let(:account) { Freee::Account }
 
   before(:each) do
     Freee::Base.config(client_id, secret_key, token)

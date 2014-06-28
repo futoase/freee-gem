@@ -4,7 +4,7 @@ describe Freee::Walletable do
   let(:client_id) { get_client_id }
   let(:secret_key) { get_secret_key }
   let(:token) { get_token }
-  let(:walletable) { Freee::Walletable.new }
+  let(:walletable) { Freee::Walletable }
 
   before(:each) do
     Freee::Base.config(client_id, secret_key, token)

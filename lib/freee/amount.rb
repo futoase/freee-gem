@@ -1,7 +1,7 @@
 module Freee
   class Amount < Freee::Base
-    def current_report
-      client.get('/api/p/reports/amounts/current')
+    def self.current_report
+      Freee.client.get('/api/p/reports/amounts/current')
     end
   end
 end

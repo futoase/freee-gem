@@ -1,11 +1,11 @@
 module Freee
   class Tax < Freee::Base
-    def list
-      client.get('/api/1/taxes')
+    def self.list
+      Freee.client.get('/api/1/taxes')
     end
 
-    def list_of_code
-      client.get('/api/1/taxes/codes')
+    def self.list_of_code
+      Freee.client.get('/api/1/taxes/codes')
     end
   end
 end

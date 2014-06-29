@@ -57,4 +57,50 @@ describe Freee::Deal do
     it { is_expected.to include('from_walletable_id') }
     it { is_expected.to include('amount') }
   end
+
+  describe 'should get payments from deals for the company with start_due_date' do
+    subject do
+      result = deal.list(company_id, start_due_date: '2014-06-25')['deals']
+      __memoize = result
+
+      result.select! { |x| x['due_date'] >= '2014-06-25' }
+      result.map! { |x| x['due_date'] }
+
+      __memoize.map! { |x| x['due_date'] }
+
+      result.length == __memoize.length
+    end
+
+    it { is_expected.not_to be_nil }
+    it { is_expected.to be_truthy }
+  end
+
+  describe 'should get payments from future deals for the company with start_due_date' do
+    subject { deal.list(company_id, start_due_date: '2099-12-31')['deals'] }
+
+    it { is_expected.not_to be_nil }
+    it { is_expected.to eq [] }
+  end
+  
+  describe 'should get payments for deals with income' do
+    subject do
+      result = deal.list_income(company_id)['deals'] 
+      result.map! { |x| x['type'] == 'income' }
+      Set.new(result).length
+    end
+
+    it { is_expected.not_to be_nil }
+    it { is_expected.to eq 1 }
+  end
+
+  describe 'should get payments for deals with outcome' do
+    subject do
+      result = deal.list_expense(company_id)['deals'] 
+      result.map! { |x| x['type'] == 'expense' }
+      Set.new(result).length
+    end
+
+    it { is_expected.not_to be_nil }
+    it { is_expected.to eq 1 }
+  end
 end

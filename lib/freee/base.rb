@@ -1,9 +1,19 @@
-module Freee
+require 'uri'
 
+module Freee
   def client
     Base.new.client
   end
   module_function :client
+
+  def encode_params(kwargs)
+    if kwargs.length != 0
+      '&' + URI.encode_www_form(kwargs)
+    else
+      ''
+    end
+  end
+  module_function :encode_params
 
   class Base
 

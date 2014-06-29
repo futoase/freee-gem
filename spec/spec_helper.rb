@@ -2,34 +2,28 @@ $:.unshift(File.realpath(File.dirname(__FILE__) + '/../lib'))
 
 require 'freee'
 
-#Dir.glob(File.realpath(File.dirname(__FILE__) + '/../lib/freee') + '/**') do |freee|
-#  require freee
-#end
-
-SAMPLE = YAML.load_file(File.expand_path('./sample.yml', __dir__))
-
 def get_client_id
-  SAMPLE["client_id"]
+  ENV["FREEE_CLIENT_ID"]
 end
 
 def get_secret_key
-  SAMPLE["secret_key"]
+  ENV["FREEE_SECRET_KEY"]
 end
 
 def get_token
-  SAMPLE["token"]
+  ENV["FREEE_APPLICATION_TOKEN"]
 end
 
 def get_redirect_url
-  SAMPLE["redirect_url"]
+  ENV["FREEE_REDIRECT_URL"]
 end
 
 def get_authorization_code
-  SAMPLE["get_authorization_code"]
+  ENV["FREEE_AUTHORIZATION_CODE"]
 end
 
 def get_company_id
-  SAMPLE["company_id"]
+  ENV["FREEE_COMPANY_ID"]
 end
 
 RSpec.configure do |config|

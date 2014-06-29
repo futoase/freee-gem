@@ -36,4 +36,24 @@ describe Freee::Wallet do
     it { is_expected.to include('walletable_type') }
     it { is_expected.to include('walletable_id') }
   end
+
+  describe 'should get information of first wallet txns with walletable type' do
+    subject do
+      result = wallet.list(company_id, walletable_type: 'bank_account')['wallet_txns']
+      result.map! { |x| x['walletable_type'] }
+      Set.new(result).length
+    end
+
+    it { is_expected.not_to be_nil }
+    it { is_expected.to eq 1 }
+  end
+
+  describe "should get information of one's wallet txns" do
+    subject do
+      wallet.list(company_id, limit: 2)['wallet_txns'].length
+    end
+
+    it { is_expected.not_to be_nil }
+    it { is_expected.to eq 2 }
+  end
 end

@@ -13,6 +13,12 @@ module Freee
 
     attr_reader :client
 
+    def self.set_env
+      @@client_id = ENV["FREEE_CLIENT_ID"]
+      @@secret_key = ENV["FREEE_SECRET_KEY"]
+      @@token = ENV["FREEE_APPLICATION_TOKEN"]
+    end
+
     def self.config(client_id, secret_key, token)
       @@client_id = client_id.to_s
       @@secret_key = secret_key.to_s

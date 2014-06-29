@@ -18,14 +18,18 @@ Or install it yourself as:
 
 ## Usage
 
-```ruby
-require 'freee'
-
-Freee::Base.config("#{client_id}", "#{secret_key}", "#{token}")
-Freee::User.new.me
+```sh
+> export FREEE_CLIENT_ID=XXXXX
+> export FREEE_SECRET_KEY=XXXXX
+> export FREEE_APPLICATION_TOKEN=XXXXX
+> irb
+> require 'freee'
+> Freee::Base.set_env
+> Freee::User.me
+{"user"=>{"email"=>"hoge@example.com", "display_name"=>nil, "first_name"=>nil, "last_name"=>nil, "first_name_kana"=>nil, "last_name_kana"=>nil}}
 ```
 
-### Create token
+### Generate token
 
 ```
 > freee token

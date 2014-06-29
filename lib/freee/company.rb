@@ -9,7 +9,7 @@ module Freee
     end
 
     def self.list_of_details(company_id)
-      Freee.client.get("/api/1/companies/#{company_id.to_s}")
+      Freee.client.get("/api/1/companies/#{company_id.to_i}")
     end
   end
 end

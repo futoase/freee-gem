@@ -5,7 +5,7 @@ module Freee
     end
 
     def self.list(company_id)
-      Freee.client.get("/api/1/wallet_txns?company_id=#{company_id}")
+      Freee.client.get("/api/1/wallet_txns?company_id=#{company_id.to_i}")
     end
   end
 end

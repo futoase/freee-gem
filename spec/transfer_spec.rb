@@ -33,4 +33,11 @@ describe Freee::Transfer do
     it { is_expected.to include('to_walletable_id') }
     it { is_expected.to include('description') }
   end
+
+  describe "should be get one's information of first transfers for the company" do
+    subject { transfer.list(company_id, limit: 3)['transfers'].length }
+
+    it { is_expected.not_to be_nil }
+    it { is_expected.to eq 3 }
+  end
 end

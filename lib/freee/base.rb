@@ -51,7 +51,7 @@ module Freee
     end
 
     def get(path)
-      @client.get(path).response.env[:body]
+      Response.new(@client.get(path).response.env[:body])
     end
 
     private

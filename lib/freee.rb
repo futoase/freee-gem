@@ -20,6 +20,8 @@ require 'freee/util'
 require 'freee/wallet'
 require 'freee/walletable'
 
+require 'freee/net/response'
+
 module Freee
   OPTIONS = {
     site: 'https://api.freee.co.jp',

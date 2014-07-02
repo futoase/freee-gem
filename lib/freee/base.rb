@@ -50,8 +50,18 @@ module Freee
       @@token = token
     end
 
-    def get(path)
-      Response.new(@client.get(path).response.env[:body])
+    def get(path, type=nil)
+      response = Freee::Response::Base.new(
+        @client.get(path).response.env[:body]
+      )
+
+      if type == :account
+        response['account_items'] = response['account_items'].map do |account|
+          Freee::Response::Account.new(account)
+        end
+      end
+
+      response
     end
 
     private

@@ -1,5 +1,5 @@
-module Freee
-  class Response
+module Freee::Response
+  class Base
     attr_reader :val
 
     def initialize(val)
@@ -24,6 +24,5 @@ module Freee
     alias_method :key, :has_key?
     alias_method :include?, :has_key?
     alias_method :member?, :has_key?
-
   end
 end

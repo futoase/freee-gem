@@ -20,7 +20,8 @@ require 'freee/util'
 require 'freee/wallet'
 require 'freee/walletable'
 
-require 'freee/net/response'
+require 'freee/obj/response'
+require 'freee/obj/account'
 
 module Freee
   OPTIONS = {

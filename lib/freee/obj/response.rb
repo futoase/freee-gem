@@ -25,4 +25,15 @@ module Freee::Response
     alias_method :include?, :has_key?
     alias_method :member?, :has_key?
   end
+
+  class Type
+    def self.convert(response, type=nil)
+      if type == :account
+        response['account_items'] = response['account_items'].map do |account|
+          Freee::Response::Account.new(account)
+        end
+      end
+      return response
+    end
+  end
 end

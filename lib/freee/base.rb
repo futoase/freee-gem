@@ -54,14 +54,7 @@ module Freee
       response = Freee::Response::Base.new(
         @client.get(path).response.env[:body]
       )
-
-      if type == :account
-        response['account_items'] = response['account_items'].map do |account|
-          Freee::Response::Account.new(account)
-        end
-      end
-
-      response
+      return Freee::Response::Type.convert(response, type)
     end
 
     private

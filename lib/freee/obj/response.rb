@@ -1,3 +1,5 @@
+require 'active_support/inflector'
+
 module Freee::Response
   class Base
     attr_reader :val
@@ -28,12 +30,9 @@ module Freee::Response
 
   class Type
     def self.convert(response, type=nil)
-      if type == :account
-        response['account_items'] = response['account_items'].map do |account|
-          Freee::Response::Account.new(account)
-        end
-      end
-      return response
+      klass = "Freee::Response::#{type.to_s.capitalize}".constantize
+      response.map! { |x| klass.new(x) }
+      response
     end
   end
 end

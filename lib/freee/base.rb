@@ -51,9 +51,7 @@ module Freee
     end
 
     def get(path, type=nil)
-      response = Freee::Response::Base.new(
-        @client.get(path).response.env[:body]
-      )
+      response = @client.get(path).response.env[:body]
       return Freee::Response::Type.convert(response, type)
     end
 

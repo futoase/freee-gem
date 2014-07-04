@@ -18,6 +18,7 @@ describe Freee::Account do
   describe 'should be get information of account' do
     subject { account.items(company_id) }
     it { is_expected.to include('account_items') }
+    it { is_expected.to be_instance_of(Freee::Response::Account) }
   end
 
   describe 'should be get information of account_items' do

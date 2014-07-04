@@ -12,7 +12,9 @@ describe Freee::Partner do
   end
 
   it 'should can be able to create instance' do
-    expect(partner.list(company_id)).not_to be_nil
+    subject { partner.list(company_id) }
+    it { is_expected.not_to be_nil }
+    it { is_expected.to be_instance_of(Freee::Response::Partner) }
   end
 
   describe 'should get partners of first item for the company' do

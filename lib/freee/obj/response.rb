@@ -31,8 +31,7 @@ module Freee::Response
   class Type
     def self.convert(response, type=nil)
       klass = "Freee::Response::#{type.to_s.capitalize}".constantize
-      response.map! { |x| klass.new(x) }
-      response
+      klass.new(response)
     end
   end
 end

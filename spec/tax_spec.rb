@@ -11,8 +11,10 @@ describe Freee::Tax do
     Freee::Base.config(client_id, secret_key, token)
   end
 
-  it 'should can be able to create instance' do
-    expect(tax.list(company_id)).not_to be_nil
+  describe 'should can be able to create instance' do
+    subject { tax.list(company_id) }
+    it { is_expected.not_to be_nil }
+    it { is_expected.to be_instance_of(Freee::Response::Tax) }
   end
 
   describe 'should get item of tax for the company' do

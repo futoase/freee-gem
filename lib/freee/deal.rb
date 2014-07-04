@@ -6,7 +6,10 @@ module Freee
 
     def self.list(company_id, **kwargs)
       params = Freee.encode_params(kwargs)
-      Freee.client.get("/api/1/deals?company_id=#{company_id.to_i}#{params}")
+      Freee.client.get(
+        "/api/1/deals?company_id=#{company_id.to_i}#{params}",
+        :deal
+      )
     end
 
     def self.list_income(company_id, **kwargs)

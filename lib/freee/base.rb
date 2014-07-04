@@ -50,8 +50,9 @@ module Freee
       @@token = token
     end
 
-    def get(path)
-      Response.new(@client.get(path).response.env[:body])
+    def get(path, type=nil)
+      response = @client.get(path).response.env[:body]
+      return Freee::Response::Type.convert(response, type)
     end
 
     private

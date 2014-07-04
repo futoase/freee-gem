@@ -11,8 +11,10 @@ describe Freee::Transfer do
     Freee::Base.config(client_id, secret_key, token)
   end
 
-  it 'should be able to get client' do
-    expect(transfer.list(company_id)).not_to be_nil
+  describe 'should be able to get client' do
+    subject { transfer.list(company_id) }
+    it { is_expected.not_to be_nil }
+    it { is_expected.to be_instance_of(Freee::Response::Transfer) }
   end
 
   it 'should be get information of transfers for the company' do

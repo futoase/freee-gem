@@ -11,8 +11,10 @@ describe Freee::Item do
     Freee::Base.config(client_id, secret_key, token)
   end
 
-  it 'should can be able to create instance' do
-    expect(item.list(company_id)).not_to be_nil
+  describe 'should can be able to create instance' do
+    subject { item.list(company_id) }
+    it { is_expected.not_to be_nil }
+    it { is_expected.to be_instance_of(Freee::Response::Item) }
   end
 
   describe 'should get information of first item for the company' do

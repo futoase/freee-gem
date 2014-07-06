@@ -15,6 +15,13 @@ module Freee
   end
   module_function :encode_params
 
+  def includes(file_path, search_path)
+    Dir.glob(File.realpath(File.dirname(file_path)) + '/' + search_path).map do |f|
+      require f if FileTest.file?(f)
+    end
+  end
+  module_function :includes
+
   class Base
 
     @@client_id = nil

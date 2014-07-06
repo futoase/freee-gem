@@ -5,33 +5,12 @@ require 'httpauth'
 require 'thor'
 
 $:.unshift(File.dirname(__FILE__))
-require 'freee/version'
-require 'freee/base'
-require 'freee/account'
-require 'freee/amount'
-require 'freee/company'
-require 'freee/deal'
-require 'freee/item'
-require 'freee/partner'
-require 'freee/tax'
-require 'freee/transfer'
-require 'freee/user'
-require 'freee/util'
-require 'freee/wallet'
-require 'freee/walletable'
 
+require 'freee/base'
 require 'freee/obj/response'
-require 'freee/obj/account'
-require 'freee/obj/amount'
-require 'freee/obj/company'
-require 'freee/obj/deal'
-require 'freee/obj/item'
-require 'freee/obj/partner'
-require 'freee/obj/tax'
-require 'freee/obj/transfer'
-require 'freee/obj/user'
-require 'freee/obj/wallet'
-require 'freee/obj/walletable'
+
+Freee.includes(__FILE__, 'freee/*')
+Freee.includes(__FILE__, 'freee/obj/*')
 
 module Freee
   OPTIONS = {

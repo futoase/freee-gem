@@ -1,7 +1,7 @@
 module Freee
   class Wallet < Freee::Base
-    def self.create
-      #client.post('/api/1/wallet_txns')
+    def self.create(**kwargs)
+      Freee.client.post('/api/1/wallet_txns', :wallet, **kwargs)
     end
 
     def self.list(company_id, **kwargs)

@@ -62,6 +62,11 @@ module Freee
       return Freee::Response::Type.convert(response, type)
     end
 
+    def post(path, type=nil, **kwargs)
+      response = @client.post(path, { params: kwargs }).response.env[:body]
+      return Freee::Response::Type.convert(response, type)
+    end
+
     private
     def create_client
       OAuth2::Client.new(@@client_id, @@secret_key, OPTIONS) do |con|

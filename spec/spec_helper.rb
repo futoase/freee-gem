@@ -28,6 +28,10 @@ def get_company_id
   ENV["FREEE_COMPANY_ID"]
 end
 
+def get_walletable_id
+  ENV["FREEE_WALLETABLE_ID"]
+end
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true

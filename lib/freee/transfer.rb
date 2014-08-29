@@ -1,7 +1,7 @@
 module Freee
   class Transfer < Freee::Base
     def self.create
-      #client.post('/api/1/transfers')
+      Freee.client.post('/api/1/transfers', :transfer, **kwargs)
     end
 
     def self.list(company_id, **kwargs)

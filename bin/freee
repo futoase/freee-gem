@@ -8,11 +8,34 @@ module Freee
     include Thor::Actions
 
     desc "token", "Get access token of application for the freee."
+    option :client_id
+    option :secret_key
+    option :redirect_uri
+    option :authorization_code
     def token 
-      client_id = ask("Client ID\n")
-      secret_key = ask("Secret Key\n")
-      redirect_uri = ask("Redirect URI\n")
-      authorization_code = ask("Authorization code\n")
+      if options[:client_id]
+        client_id = options[:client_id].strip
+      else
+        client_id = ask("Client ID\n")
+      end
+
+      if options[:secret_key]
+        secret_key = options[:secret_key].strip
+      else
+        secret_key = ask("Secret Key\n")
+      end
+
+      if options[:redirect_uri]
+        redirect_uri = options[:redirect_uri]
+      else
+        redirect_uri = ask("Redirect URI\n")
+      end
+
+      if options[:authorization_code]
+        authorization_code = options[:authorization_code]
+      else
+        authorization_code = ask("Authorization code\n")
+      end
 
       puts 'Token: ' + Freee::Util.create_token(
         client_id: client_id,

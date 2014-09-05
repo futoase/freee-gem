@@ -2,6 +2,10 @@
 
 Ruby implementation of the freee API.
 
+# Document
+
+- [freee API v1.0](https://gist.github.com/yokoji/822edacff497b21fa7bf)(Japanese)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -31,8 +35,28 @@ Or install it yourself as:
 
 ### Generate token
 
+- Generate application token
+
 ```
-> freee token
+> freee token \
+  --client-id=$FREEE_CLIENT_ID \
+  --secret-key=$FREEE_SECRET_KEY \
+  --redirect-uri=$FREEE_REDIRECT_URI \
+  --authorization-code=$FREEE_AUTHORIZATION_CODE
+Token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+RefreshToken: YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+```
+
+- Refresh application token
+
+```
+> freee token \
+  --client-id=$FREEE_CLIENT_ID \
+  --secret-key=$FREEE_SECRET_KEY \
+  --redirect-uri=$FREEE_REDIRECT_URI \
+  --refresh-token=$FREEE_REFRESH_TOKEN
+Token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+RefreshToken: YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 ```
 
 ## Contributing

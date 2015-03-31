@@ -1,9 +1,9 @@
 module Freee
-  class Account < Freee::Base
-    def self.items(company_id)
+  class AccountItem < Freee::Base
+    def self.list(company_id)
       Freee.client.get(
         "/api/1/account_items?company_id=#{company_id.to_i}",
-        :account
+        :account_item
       )
     end
   end

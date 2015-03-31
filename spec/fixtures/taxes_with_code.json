@@ -1,0 +1,9 @@
+{
+  "taxes" : [
+    {
+      "code" : 21,
+      "name" : "sales_with_tax",
+      "name_ja" : "課税売上"
+    }
+  ]
+}

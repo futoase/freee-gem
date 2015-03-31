@@ -1,0 +1,13 @@
+{
+  "company" : {
+    "id" : 1,
+    "name" : "freee事務所",
+    "name_kana" : "フリージムショ",
+    "display_name" : "freee事務所",
+    "role" : "admin",
+    "account_items" : [],
+    "taxes" : [],
+    "items" : [],
+    "partners" : []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "wallet_txns" : [
+    {
+      "id" : 101,
+      "company_id" : 1,
+      "date" : "2013-01-01",
+      "amount" : 5000,
+      "due_amount" : 0,
+      "balance" : 10000,
+      "entry_side" : "income",
+      "walletable_type" : "bank_account",
+      "walletable_id" : 101,
+      "description" : "振込 カ）ABC"
+    }
+  ]
+}

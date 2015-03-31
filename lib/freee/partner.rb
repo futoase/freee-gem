@@ -1,7 +1,8 @@
 module Freee
   class Partner < Freee::Base
-    def self.create
-      #client.post('/api//1/partners')
+    def self.create(json)
+      params = Freee.encode_json(json)
+      Freee.client.post('/api/1/partners', :partner, params)
     end
 
     def self.list(company_id)

@@ -1,5 +1,5 @@
 module Freee::Response
-  class Wallet < Base
+  class Tag < Base
   end
 end
 

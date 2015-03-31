@@ -23,7 +23,6 @@ module Freee
           )
         }
       }
-
       client.get_token(params).token
     end
 

@@ -1,0 +1,19 @@
+{
+  "user" : {
+    "email" : "example@freee.co.jp",
+    "display_name" : "フリー太郎",
+    "first_name" : "太郎",
+    "last_name" : "フリー",
+    "first_name_kana" : "たろう",
+    "last_name_kana" : "ふりー",
+    "companies" : [
+      {
+        "id" : 101,
+        "name" : "freee事務所",
+        "name_kana" : "フリージムショ",
+        "display_name" : "freee事務所",
+        "role" : "admin"
+      }
+    ]
+  }
+}

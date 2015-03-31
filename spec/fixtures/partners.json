@@ -1,0 +1,11 @@
+{
+  "partners" : [
+    {
+      "id" : 101,
+      "company_id" : 1,
+      "name" : "ABC商店",
+      "shortcut1" : "ABC",
+      "shortcut2" : "501"
+    }
+  ]
+}

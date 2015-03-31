@@ -1,4 +1,5 @@
 require 'uri'
+require 'json'
 
 module Freee
   def client
@@ -14,6 +15,13 @@ module Freee
     end
   end
   module_function :encode_params
+
+  def encode_json(params)
+    JSON.parse(params).to_json
+  rescue
+    '?' + URI.encode_www_form(JSON.parse(params, quirks_mode: true))
+  end
+  module_function :encode_json
 
   def includes(file_path, search_path)
     Dir.glob(File.realpath(File.dirname(file_path)) + '/' + search_path).map do |f|
@@ -62,8 +70,11 @@ module Freee
       return Freee::Response::Type.convert(response, type)
     end
 
-    def post(path, type=nil, **kwargs)
-      response = @client.post(path, { params: kwargs }).response.env[:body]
+    def post(path, type=nil, params)
+      response = @client.post(path, { body: {params: params} }).response.env[:body]
+    rescue
+      response = @client.post(path + params).response.env[:body]
+    ensure
       return Freee::Response::Type.convert(response, type)
     end
 

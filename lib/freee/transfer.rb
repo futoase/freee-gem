@@ -1,5 +1,6 @@
 module Freee
   class Transfer < Freee::Base
+
     def self.create(json)
       params = Freee.encode_json(json)
       Freee.client.post('/api//1/transfers', :transfer, params)

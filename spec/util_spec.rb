@@ -21,7 +21,9 @@ describe Freee::Util do
       redirect_url: redirect_uri,
       authorization_code: authorization_code
     )
-    expect(result).to be_kind_of(String)
-    expect(result).to match(/[a-z0-9]{64}/)
+
+    token = result[:token]
+    expect(token).to be_kind_of(String)
+    expect(token).to match(/[a-z0-9]{64}/)
   end
 end

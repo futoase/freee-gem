@@ -1,30 +1,57 @@
 require 'spec_helper'
 
 describe Freee::User do
-  let(:client_id) { get_client_id }
-  let(:secret_key) { get_secret_key }
-  let(:token) { get_token }
-  let(:user) { Freee::User }
 
-  before(:each) do
-    Freee::Base.config(client_id, secret_key, token)
+  before do
+    Freee::Base.config(get_client_id, get_secret_key, get_token)
+    @client = Freee::User
   end
 
-  describe 'should be get information of user' do
-    subject { user.me }
-    it { is_expected.not_to be_nil }
-    it { is_expected.to be_instance_of(Freee::Response::User) }
-    it { is_expected.to include('user') }
-  end
+  describe 'user' do
+    context '#me' do
+      before do
+        stub_get('/api/1/users/me').to_return(body: fixture('user.json'), headers: {content_type: 'application/json; charset=utf-8'} )
+        @responses = @client.me
+      end
+      after { WebMock.reset! }
 
-  it 'should be get information of user at all' do
-    result = user.me_all
-    expect(result).to include('user')
-    expect(result['user']).to include('companies')
-    user_company_info_of_first = result['user']['companies'].first
+      it 'requests the correct resource' do
+        assert_request_requested a_get('/api/1/users/me')
+      end
 
-    expect(user_company_info_of_first).to include('id')
-    expect(user_company_info_of_first).to include('display_name')
-    expect(user_company_info_of_first).to include('role')
+      it 'should can be able to create instance' do
+        expect(@responses).to include('user')
+      end
+
+      describe 'should be get information of user' do
+        subject { @responses}
+        it { is_expected.to be_instance_of(Freee::Response::User) }
+      end
+    end
+
+    context '#me_all' do
+      before do
+        stub_get('/api/1/users/me?companies=true').to_return(body: fixture('user_with_companies.json'), headers: {content_type: 'application/json; charset=utf-8'} )
+        @responses = @client.me_all
+      end
+      after { WebMock.reset! }
+
+      it 'requests the correct resource' do
+        assert_request_requested a_get('/api/1/users/me?companies=true')
+      end
+
+      it 'should can be able to create instance' do
+        expect(@responses).to include('user')
+      end
+
+      it 'should be get information of user at all' do
+        expect(@responses['user']).to include('companies')
+        user_company_info_of_first = @responses['user']['companies'].first
+
+        expect(user_company_info_of_first).to include('id')
+        expect(user_company_info_of_first).to include('display_name')
+        expect(user_company_info_of_first).to include('role')
+      end
+    end
   end
 end

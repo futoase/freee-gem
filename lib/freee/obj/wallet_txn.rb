@@ -1,5 +1,5 @@
 module Freee::Response
-  class Amount < Base
+  class WalletTxn < Base
   end
 end
 

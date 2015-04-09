@@ -1,5 +1,5 @@
 module Freee::Response
-  class Account < Base
+  class Section < Base
   end
 end
 

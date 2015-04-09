@@ -1,0 +1,11 @@
+{
+  "items" : [
+    {
+      "id" : 101,
+      "company_id" : 1,
+      "name" : "タクシー代",
+      "shortcut1" : "TAXI",
+      "shortcut2" : "201"
+    }
+  ]
+}

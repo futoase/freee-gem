@@ -1,0 +1,9 @@
+{
+  "item" : {
+    "id" : 102,
+    "company_id" : 1,
+    "name" : "新しい品目",
+    "shortcut1" : "NEWITEM",
+    "shortcut2" : "202"
+  }
+}

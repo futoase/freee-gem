@@ -7,5 +7,9 @@ module Freee
     def self.list_of_details(company_id)
       Freee.client.get("/api/1/companies/#{company_id.to_i}", :company)
     end
+
+    class << self
+      alias :show :list_of_details
+    end
   end
 end

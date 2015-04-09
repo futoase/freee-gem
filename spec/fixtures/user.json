@@ -1,0 +1,10 @@
+{
+  "user" : {
+    "email" : "example@freee.co.jp",
+    "display_name" : "フリー太郎",
+    "first_name" : "太郎",
+    "last_name" : "フリー",
+    "first_name_kana" : "たろう",
+    "last_name_kana" : "ふりー"
+  }
+}

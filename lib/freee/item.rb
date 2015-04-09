@@ -1,7 +1,9 @@
 module Freee
   class Item < Freee::Base
-    def create
-      Freee.client.post('/api/1/items', :item, **kwargs)
+
+    def self.create(json)
+      params = Freee.encode_json(json)
+      Freee.client.post('/api/1/items', :item, params)
     end
 
     def self.list(company_id)

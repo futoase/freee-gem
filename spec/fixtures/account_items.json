@@ -1,0 +1,20 @@
+{
+  "account_items" : [
+    {
+      "id" : 101,
+      "name" : "ソフトウェア",
+      "shortcut" : "SOFUTO",
+      "default_tax_id" : 12,
+      "default_tax_code" : 108,
+      "categories" : ["資産", "固定資産", "無形固定資産"]
+    },
+    {
+      "id" : 102,
+      "name" : "ほげほげ",
+      "shortcut" : "HOGE",
+      "default_tax_id" : 12,
+      "default_tax_code" : 108,
+      "categories" : ["資産", "固定資産", "無形固定資産"]
+    }
+  ]
+}

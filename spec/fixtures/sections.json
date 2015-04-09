@@ -1,0 +1,11 @@
+{
+  "sections" : [
+    {
+      "id" : 101,
+      "company_id" : 1,
+      "name" : "開発部門",
+      "shortcut1" : "DEVELOPER",
+      "shortcut2" : "123"
+    }
+  ]
+}

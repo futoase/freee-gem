@@ -1,0 +1,9 @@
+{
+  "walletables" : [
+    {
+      "id" : 101,
+      "name" : "〇〇銀行",
+      "type" : "bank_account"
+    }
+  ]
+}

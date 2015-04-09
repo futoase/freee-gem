@@ -1,0 +1,9 @@
+{
+  "partner" : {
+    "id" : 102,
+    "company_id" : 1,
+    "name" : "新しい取引先",
+    "shortcut1" : "NEWPARTNER",
+    "shortcut2" : "502"
+  }
+}
